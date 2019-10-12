@@ -1,27 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/refqihussein/golangforlife/golangforlife/Introduction/cetak"
+	"github.com/refqihussein/golangforlife/golangforlife/Introduction/handler"
+	"github.com/refqihussein/golangforlife/golangforlife/Introduction/model"
+	"github.com/refqihussein/golangforlife/golangforlife/Introduction/pointer"
+)
 
 func main() {
 	var a string = "nama"
 	b := 1
-	cetak(a, b)
+	cetak.Cetak(a, b)
 
-	d := indra("dana cukup", "calon ada")
+	d := cetak.Indra("dana cukup", "calon ada")
 	fmt.Printf("%s \n", d)
 
-}
+	_, x := cetak.Adi()
+	fmt.Printf("Istri adi :\n " + x)
 
-func cetak(x string, y int) {
-	fmt.Printf("hallo %s %d \n", x, y)
-}
+	pointer.Pointer()
 
-func indra(x string, y string) string {
-	var a string
-	if x == "dana cukup" && y == "calon ada" {
-		a = "nikah"
-	} else {
-		a = "ditinggal nikah"
-	}
-	return a
+	var createdPerson *model.Person
+	createdPerson = handler.Create()
+
+	handler.Edit(createdPerson)
 }
